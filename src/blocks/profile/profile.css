@@ -4,6 +4,7 @@
   grid-template-rows: 1fr;
   padding-top: 40px;
   flex-direction: row;
+  margin: 0 10%;
 }
 
 @media screen and (max-width: 880px) {

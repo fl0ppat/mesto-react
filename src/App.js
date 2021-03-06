@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
 
@@ -7,7 +8,7 @@ function App() {
     <div className="App">
       <Header />
       <Main />
-      <Header />
+      <Footer />
       <section className="popup" id="edit">
         <div className="popup__container">
           <form className="popup__form" id="formEdit" name="dataEdit" action="." noValidate>
