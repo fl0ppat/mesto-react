@@ -1,13 +1,36 @@
+import logo from "./blocks/header/__logo-img/Vector.svg";
 import "./App.css";
-import Header from "./components/Header";
-import Main from "./components/Main";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Main />
-      <Header />
+      <header className="header">
+        <a href="#" target="_blank" className="header__logo-link">
+          <img src={logo} alt="Логотип" className="header__logo-img" />
+        </a>
+      </header>
+      <main>
+        <section className="profile">
+          <div className="profile__avatar skeleton">
+            <div className="profile__change-icon" />
+          </div>
+          <div className="profile__info">
+            <div className="profile__wrapper">
+              <h1 className="profile__name skeleton" />
+              <button type="button" className="profile__edit" />
+            </div>
+            <p className="profile__subtitle skeleton" />
+          </div>
+          <button type="button" className="button button_type_add" />
+        </section>
+        <section className="cards">
+          <div className="loading" />
+          <ul className="grid-cards"></ul>
+        </section>
+      </main>
+      <footer className="footer">
+        <p className="footer__copyright">© 2020 Mesto Russia</p>
+      </footer>
       <section className="popup" id="edit">
         <div className="popup__container">
           <form className="popup__form" id="formEdit" name="dataEdit" action="." noValidate>
