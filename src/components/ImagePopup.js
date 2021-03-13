@@ -1,6 +1,6 @@
 import Popup from "./Popup";
 
-class PopupWithImage extends Popup {
+class ImagePopup extends Popup {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,4 +35,4 @@ class PopupWithImage extends Popup {
   }
 }
 
-export default PopupWithImage;
+export default ImagePopup;
