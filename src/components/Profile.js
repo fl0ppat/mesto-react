@@ -20,7 +20,6 @@ function Profile() {
   useEffect(() => {
     //function getProfileData() {
     Api.getUserData().then((data) => {
-      console.log(`try to load`);
       setUserData({
         isPreloading: false,
         userData: data,

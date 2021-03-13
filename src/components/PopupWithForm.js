@@ -27,7 +27,7 @@ class PopupWithForm extends Popup {
               required
               minLength={2}
               maxLength={200}
-              ddefaultValue=""
+              defaultValue=""
               name="subtitle"
               placeholder="Занятие"
               className="popup__input"

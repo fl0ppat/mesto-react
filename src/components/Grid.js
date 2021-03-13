@@ -42,7 +42,6 @@ class Grid extends React.Component {
   }
 
   closePopupCallbackImage() {
-    console.log(this.state);
     this.setState({
       cards: this.state.cards,
       currentImageId: 0,
