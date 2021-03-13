@@ -1,7 +1,7 @@
 import React from "react";
 import Api from "../utils/Api.js";
 import Card from "./Card";
-import PopupWithImage from "./PoupWithImage";
+import ImagePopup from "./ImagePopup";
 import PopupWithForm from "./PopupWithForm";
 
 class Grid extends React.Component {
@@ -91,7 +91,7 @@ class Grid extends React.Component {
     return (
       <>
         {this.state.popups.image && this.state.popupIsOpen && (
-          <PopupWithImage
+          <ImagePopup
             open={this.state.popupIsOpen}
             imageUrl={this.state.cards[this.state.currentImageId].link}
             title={this.state.cards[this.state.currentImageId].name}
