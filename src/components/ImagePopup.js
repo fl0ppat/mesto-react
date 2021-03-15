@@ -1,38 +1,23 @@
-import Popup from "./Popup";
+import React from "react";
 
-class ImagePopup extends Popup {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpen: props.open,
-      imageUrl: "",
-      title: "",
-    };
-  }
-
-  openPopup() {
-    this.setState({
-      isOpen: this.props.open,
-      imageUrl: this.props.imageUrl,
-      title: this.props.title,
-    });
-    super.openPopup();
-  }
-
-  closePopup() {
-    this.props.closeCallback();
-    super.closePopup();
-  }
-
-  render() {
-    const image = (
-      <div className="popup__full">
-        <img src={this.props.imageUrl} alt={this.props.title} className="popup__img" />
-        <p className="popup__full-title">{this.props.title}</p>
+function ImagePopup(props) {
+  return (
+    <section className={props.isOpen ? `popup popup_opened` : `popup`}>
+      <div className="popup__container">
+        <button
+          type="button"
+          onClick={() => {
+            props.closeCallback();
+          }}
+          className="popup__close"
+        />
+        <div className="popup__full">
+          <img src={props.cardData.link} alt={props.cardData.name} className="popup__img" />
+          <p className="popup__full-title">{props.cardData.name}</p>
+        </div>
       </div>
-    );
-    return super.render(image);
-  }
+    </section>
+  );
 }
 
 export default ImagePopup;

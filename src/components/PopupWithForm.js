@@ -12,7 +12,7 @@ import React from "react";
  * @param {Boolean} props.btnIsActive
  * @param {Function} props.submitCallback
  * @param {Function} props.closeCallback
- * @return {*}
+ * @return {Component}
  */
 function PopupWithForm(props) {
   return (
