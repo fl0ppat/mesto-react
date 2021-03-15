@@ -19,7 +19,7 @@ class Grid extends React.Component {
 
     this.openFullImage = this.openFullImage.bind(this);
     this.openConfirm = this.openConfirm.bind(this);
-    this.closePopupCallbackImage = this.closePopupCallbackImage.bind(this);
+    this.closePopupCallback = this.closePopupCallback.bind(this);
   }
 
   async apiCall() {
@@ -41,7 +41,7 @@ class Grid extends React.Component {
     this.apiCall();
   }
 
-  closePopupCallbackImage() {
+  closePopupCallback() {
     this.setState({
       cards: this.state.cards,
       currentImageId: 0,
@@ -95,12 +95,18 @@ class Grid extends React.Component {
             open={this.state.popupIsOpen}
             imageUrl={this.state.cards[this.state.currentImageId].link}
             title={this.state.cards[this.state.currentImageId].name}
-            closeCallback={this.closePopupCallbackImage}
+            closeCallback={this.closePopupCallback}
           />
         )}
-        {this.state.popupIsOpen && this.state.popups.confirm && (
-          <PopupWithForm open={this.state.popupIsOpen} type="confirm" closeMethod={this.closePopupCallbackImage} />
-        )}
+        <PopupWithForm
+          isOpen={this.state.popups.confirm}
+          closeCallback={this.closePopupCallback}
+          name="deleteCard"
+          title="Вы уверены?"
+          btnName="Да"
+          btnIsActive={true}
+        ></PopupWithForm>
+
         <section className="cards">
           <ul className="grid-cards">
             {this.state.cards.map((card, index) => (
