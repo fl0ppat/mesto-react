@@ -61,15 +61,12 @@ class Api {
   }
 
   updateAvatar(link) {
-    console.log(link);
     return this._sendRequest(
       "PATCH",
       `${this._baseURL + this._id}/users/me/avatar`,
       { "Content-Type": "application/json" },
       { avatar: link }
-    ).then((res) => {
-      this._handleResponseStatus(res);
-    });
+    ).then((res) => this._handleResponseStatus(res));
   }
 
   _handleResponseStatus(res) {
