@@ -17,10 +17,17 @@ export default function AddPlacePopup(props) {
     e.preventDefault();
     props.onSubmit(cardName, cardLink);
   }
+
+  function handleClose() {
+    setCardName("");
+    setCardLink("");
+    props.closeCallback();
+  }
+
   return (
     <PopupWithForm
       isOpen={props.isOpen}
-      closeCallback={props.closeCallback}
+      closeCallback={handleClose}
       onSubmit={handleSubmit}
       name="addCard"
       title="Новое место"

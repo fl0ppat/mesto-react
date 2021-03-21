@@ -6,13 +6,17 @@ export default class EditAvatarPopup extends React.Component {
     super(props);
     this.ref = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
-
-  handleAvatarInput(e) {}
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.onUpdateUserAvatar(this.ref.current.value);
+  }
+
+  handleClose() {
+    this.ref.current.value = "";
+    this.props.closeCallback();
   }
 
   render() {
@@ -20,7 +24,7 @@ export default class EditAvatarPopup extends React.Component {
       <>
         <PopupWithForm
           isOpen={this.props.isOpen}
-          closeCallback={this.props.closeCallback}
+          closeCallback={this.handleClose}
           onSubmit={this.handleSubmit}
           btnIsActive={true}
           name="updateAvatar"
