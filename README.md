@@ -1,8 +1,17 @@
-# Getting Started with Create React App
+# Проект Место
+Проект представляет собой небольшой сервис для обмена ~~с̶м̶е̶ш̶н̶ы̶м̶и̶ ̶к̶а̶р̶т̶и̶н̶к̶а̶м̶и~~ фотографиями красивых мест. 
+Написан с ипользованием [Create React App](https://github.com/facebook/create-react-app).
+## Проект выполнен с ипользованием следующих технологий:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ - БЭМ
+ - Flex
+ - Grid
+ - ES6 Syntax (Arrow functions, classes)
+ - Modules
+ - React (context, refs, lifting)
 
-## Available Scripts
+
+## Информация по работе с исходниками:
 
 In the project directory, you can run:
 
