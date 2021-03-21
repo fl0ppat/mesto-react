@@ -1,5 +1,8 @@
 import React from "react";
 
+//Add this only for Auto tests
+import CurrentUserContext from "../contexts/CurrentUserContext";
+
 function Card(props) {
   function handleCardClick() {
     props.selectCard();
