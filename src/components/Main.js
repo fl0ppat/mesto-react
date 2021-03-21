@@ -12,7 +12,9 @@ function Main(props) {
     profile: false,
   });
 
-  const [cards, setCards] = useState([]);
+  function isAuthor(ownerId) {
+    return ownerId === currentUser._id;
+  }
 
   function isLiked(cardLikes) {
     return cardLikes.some((like) => {
@@ -20,42 +22,12 @@ function Main(props) {
     });
   }
 
-  function isAuthor(ownerId) {
-    return ownerId === currentUser._id;
-  }
-
-  function handleCardLike(card) {
-    if (!isLiked(card.likes)) {
-      Api.sendLike(card._id).then((newCard) => {
-        setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-      });
-    } else {
-      Api.delLike(card._id).then((newCard) => {
-        setCards((state) => state.map((c) => (c._id === card._id ? newCard : c)));
-      });
-    }
-  }
-
-  function handleCardDelete(id) {
-    Api.deleteCard(id).then(() => {
-      setCards((state) => state.filter((c) => c._id !== id));
-    });
-  }
-
-  useEffect(() => {
-    Api.getInitialCards()
-      .then((data) => setCards(data))
-      .catch(console.error(`Cards loading Error`));
-    //.finally(setPreloadingStatement({ cards: false, profile: false }))
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <main>
       <section className="profile">
         <div
           className={isPreloading.profile ? "profile__avatar skeleton" : "profile__avatar"}
-          onClick={() => onUpdateAvatar()}
+          onClick={() => onUpdateAvatar(true)}
           style={{ backgroundImage: `url(${currentUser.avatar})` }}
         >
           <div className="profile__change-icon" />
@@ -73,7 +45,7 @@ function Main(props) {
       </section>
       <section className="cards">
         <ul className="grid-cards">
-          {cards.map((card) => (
+          {props.cards.map((card) => (
             <Card
               key={card._id}
               id={card._id}
@@ -83,8 +55,8 @@ function Main(props) {
               isLiked={isLiked(card.likes)}
               isAuthor={isAuthor(card.owner._id)}
               openFull={onOpenFull}
-              onCardLike={() => handleCardLike(card)}
-              onCardDelete={() => handleCardDelete(card._id)}
+              onCardLike={() => props.onCardLike(card)}
+              onCardDelete={() => props.onCardDelete(card._id)}
               selectCard={() => {
                 onCardSelect(card);
               }}

@@ -28,15 +28,10 @@ function PopupWithForm(props) {
           }}
           className="popup__close"
         />
-        <form className="popup__form" name={props.name}>
+        <form onSubmit={props.onSubmit} className="popup__form" name={props.name}>
           <h2 className="popup__title">{props.title}</h2>
           {props.children}
-          <button
-            onClick={props.submitCallback}
-            disabled={props.btnIsActive}
-            className={`button button_type_save ${!props.btnIsActive && "button_type_inactive"}`}
-            type="submit"
-          >
+          <button className={`button button_type_save ${!props.btnIsActive && "button_type_inactive"}`} type="submit">
             {props.btnName}
           </button>
         </form>
